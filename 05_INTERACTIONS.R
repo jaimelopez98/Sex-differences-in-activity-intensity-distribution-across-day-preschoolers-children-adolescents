@@ -23,11 +23,11 @@ library(lme4)
 
 # 0) LOAD PHYSICAL ACTIVITY DATA AND DEMOGRAPHIC DATA ----
 
-act5_day <- read.csv("C:/Users/jlopezgarcia/Desktop/paper1/analysis/DATA/part5_daysummary.csv")
-act5_sum <- read.csv("C:/Users/jlopezgarcia/Desktop/paper1/analysis/DATA/part5_personsummary.csv")
+act5_day <- read.csv("/path/part5_daysummary.csv")
+act5_sum <- read.csv("/path/part5_personsummary.csv")
 act5_sum <- act5_sum %>% select(ID,season)
 
-labda_demo <- read.csv("C:/Users/jlopezgarcia/Desktop/paper1/analysis/DATA/labda_demo.csv")
+labda_demo <- read.csv("/path/labda_demo.csv")
 labda_demo <- merge(labda_demo, act5_sum)
 
 # CREATE A VARIABLE FOR MVPA intensity
@@ -160,7 +160,7 @@ ll_int <- c( logLik(lm_SB_int), logLik(lm_LIG_int),logLik(lm_MOD_int),logLik(lm_
 ll_in <- data.frame(rbind(ll_no, ll_int), row.names = c("WITHOUT INTERACTIONS", "WITH INTERACTIONS"))
 colnames(ll_in) <- models
 
-write.xlsx(ll_in,"E:/DEFINITIVO/RESULTS/interactions.xlsx",rowNames = TRUE)
+write.xlsx(ll_in,"/path/interactions.xlsx",rowNames = TRUE)
 
 # 4) DOUBLE-WAY INTERACTION (age*daytype) ----
 
@@ -216,7 +216,7 @@ ll_int_b <- c( logLik(lm_SB_int_b), logLik(lm_LIG_int_b),logLik(lm_MOD_int_b),lo
 ll_in_b <- data.frame(rbind(ll_no_b, ll_int_b), row.names = c("WITHOUT INTERACTIONS", "WITH INTERACTIONS"))
 colnames(ll_in_b) <- models
 
-write.xlsx(ll_in_b,"E:/DEFINITIVO/RESULTS/interactions_boys.xlsx",rowNames = TRUE)
+write.xlsx(ll_in_b,"/path/interactions_boys.xlsx",rowNames = TRUE)
 
 # GIRLS
 
@@ -270,7 +270,7 @@ ll_int_g <- c( logLik(lm_SB_int_g), logLik(lm_LIG_int_g),logLik(lm_MOD_int_g),lo
 ll_in_g <- data.frame(rbind(ll_no_g, ll_int_g), row.names = c("WITHOUT INTERACTIONS", "WITH INTERACTIONS"))
 colnames(ll_in_g) <- models
 
-write.xlsx(ll_in_g,"E:/DEFINITIVO/RESULTS/interactions_girls.xlsx",rowNames = TRUE)
+write.xlsx(ll_in_g,"/path/interactions_girls.xlsx",rowNames = TRUE)
 
 # 5) DOUBLE-WAY INTERACTION (sex*daytype) ----
 
@@ -326,7 +326,7 @@ ll_int_pre <- c( logLik(lm_SB_int_pre), logLik(lm_LIG_int_pre),logLik(lm_MOD_int
 ll_in_pre <- data.frame(rbind(ll_no_pre, ll_int_pre), row.names = c("WITHOUT INTERACTIONS", "WITH INTERACTIONS"))
 colnames(ll_in_pre) <- models
 
-write.xlsx(ll_in_pre,"E:/DEFINITIVO/RESULTS/interactions_pre.xlsx",rowNames = TRUE)
+write.xlsx(ll_in_pre,"/path/interactions_pre.xlsx",rowNames = TRUE)
 
 # CHILDREN (6-10y)
 
@@ -380,7 +380,7 @@ ll_int_chi <- c( logLik(lm_SB_int_chi), logLik(lm_LIG_int_chi),logLik(lm_MOD_int
 ll_in_chi <- data.frame(rbind(ll_no_chi, ll_int_chi), row.names = c("WITHOUT INTERACTIONS", "WITH INTERACTIONS"))
 colnames(ll_in_chi) <- models
 
-write.xlsx(ll_in_chi,"E:/DEFINITIVO/RESULTS/interactions_chi.xlsx",rowNames = TRUE)
+write.xlsx(ll_in_chi,"/path/interactions_chi.xlsx",rowNames = TRUE)
 
 # ADOLESCENTS (11-17y)
 
@@ -434,5 +434,5 @@ ll_int_ado <- c( logLik(lm_SB_int_ado), logLik(lm_LIG_int_ado),logLik(lm_MOD_int
 ll_in_ado <- data.frame(rbind(ll_no_ado, ll_int_ado), row.names = c("WITHOUT INTERACTIONS", "WITH INTERACTIONS"))
 colnames(ll_in_ado) <- models
 
-write.xlsx(ll_in_ado,"E:/DEFINITIVO/RESULTS/interactions_ado.xlsx",rowNames = TRUE)
+write.xlsx(ll_in_ado,"/path/interactions_ado.xlsx",rowNames = TRUE)
 
