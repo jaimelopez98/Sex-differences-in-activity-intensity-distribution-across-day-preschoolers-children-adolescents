@@ -17,8 +17,8 @@ remotes::install_github("wadpac/GGIR")
 
 # 1) GGIR CODE ----
 
-    GGIR(datadir = "C:/Users/jlopezgarcia/Desktop/paper2/analysis/studies/BFCS/data/",
-     outputdir = "C:/Users/jlopezgarcia/Desktop/paper2/analysis/studies/BFCS/ggir/",
+    GGIR(datadir = "/path/data/",
+     outputdir = "/path/ggir/",
      mode = 1:5,
      windowsizes =  c(15, 300, 1200), # 15s epoch and 20min non-wear
      dataFormat = "actigraph_csv",
