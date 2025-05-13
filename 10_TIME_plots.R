@@ -20,16 +20,16 @@ library(refund)
 # 0) LOAD PREDICTIONS FROM FUNCTIONAL MODELS ----
 
 # PRESCHOOLERS (n=1057)
-load("C:/Users/j_lopez/Desktop/paper1/analysis/DATA/TIME/PREDICTIONS/pred_obj_wd_pre.rda") # WEEKDAYS
-load("C:/Users/j_lopez/Desktop/paper1/analysis/DATA/TIME/PREDICTIONS/pred_obj_we_pre.rda") # WEEK-END DAYS
+load("/path/pred_obj_wd_pre.rda") # WEEKDAYS
+load("/path/pred_obj_we_pre.rda") # WEEK-END DAYS
 
 # CHILDREN (n=1153)
-load("C:/Users/j_lopez/Desktop/paper1/analysis/DATA/TIME/PREDICTIONS/pred_obj_wd_chi.rda") # WEEKDAYS
-load("C:/Users/j_lopez/Desktop/paper1/analysis/DATA/TIME/PREDICTIONS/pred_obj_we_chi.rda") # WEEK-END DAYS
+load("/path/pred_obj_wd_chi.rda") # WEEKDAYS
+load("/path/pred_obj_we_chi.rda") # WEEK-END DAYS
 
 # ADOLESCENTS (n=297)
-load("C:/Users/j_lopez/Desktop/paper1/analysis/DATA/TIME/PREDICTIONS/pred_obj_wd_ado.rda") # WEEKDAYS
-load("C:/Users/j_lopez/Desktop/paper1/analysis/DATA/TIME/PREDICTIONS/pred_obj_we_ado.rda") # WEEK-END DAYS
+load("/path/pred_obj_wd_ado.rda") # WEEKDAYS
+load("/path/pred_obj_we_ado.rda") # WEEK-END DAYS
 
 xi <- seq(6,22, length = 960)
 
