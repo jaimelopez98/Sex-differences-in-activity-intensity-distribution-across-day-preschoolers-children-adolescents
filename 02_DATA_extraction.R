@@ -122,7 +122,9 @@ season <- acc_day_valid %>% select(ID, calendar_date) %>%
 # WAKING TIME 
 acc_wak <- acc_data_valid2 %>% group_by(ID, calendar_date, daytype) %>%
   summarise(dur_day_min = sum(duration))
-
+            
+save(acc_wak, file = "/path/acc_wak_ACT.rda")
+            
 # SEDENTARY TIME (<181 counts/15s)
 acc_SB <- acc_data_valid2 %>% 
   filter (ACC < 181) %>%
