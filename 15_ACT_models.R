@@ -20,14 +20,14 @@ library(refund)
 
 # 0) LOAD DATA ----
 # WEEKDAYS
-load("C:/Users/jlopezgarcia/Desktop/paper1/analysis/DATA/ACT/WD_act_pre.rda") # PRESCHOOLERS
-load("C:/Users/jlopezgarcia/Desktop/paper1/analysis/DATA/ACT/WD_act_chi.rda") # CHILDREN
-load("C:/Users/jlopezgarcia/Desktop/paper1/analysis/DATA/ACT/WD_act_ado.rda") # ADOLESCENTS
+load("/path/WD_act_pre.rda") # PRESCHOOLERS
+load("/path/WD_act_chi.rda") # CHILDREN
+load("/path/WD_act_ado.rda") # ADOLESCENTS
 
 # WEEKENDS
-load("C:/Users/jlopezgarcia/Desktop/paper1/analysis/DATA/ACT/WE_act_pre.rda") # PRESCHOOLERS
-load("C:/Users/jlopezgarcia/Desktop/paper1/analysis/DATA/ACT/WE_act_chi.rda") # CHILDREN
-load("C:/Users/jlopezgarcia/Desktop/paper1/analysis/DATA/ACT/WE_act_ado.rda") # ADOLESCENTS
+load("/path/WE_act_pre.rda") # PRESCHOOLERS
+load("/path/WE_act_chi.rda") # CHILDREN
+load("/path/WE_act_ado.rda") # ADOLESCENTS
 
 load("/path/WD_c_value.rda") # WEEKDAYS
 xi_wd <- seq(0,c_value_wd,length.out = 200)
@@ -42,7 +42,7 @@ fm_wd_pre <- pffr(Y_Activity ~ O_waking_time_WD + AGE + edu_cat1 + edu_cat2 + SE
                 bs.yindex = list(bs = "ps", k=-1), 
                 bs.int = list(bs = "ps", k = 50),
                 data = data0_wd_pre)
-save(fm_wd_pre, file ="C:/Users/jlopezgarcia/Desktop/paper1/analysis/DATA/ACT/MODELS/fm_wd_pre.rda")
+save(fm_wd_pre, file ="/path/MODELS/fm_wd_pre.rda")
 
 # WEEKENDS
 fm_we_pre <- pffr(Y_Activity ~ O_waking_time_WE + AGE + edu_cat1 + edu_cat2 + SEX + season1 + season2 + season3 + study1 + s(ID, bs= "re"), 
@@ -50,7 +50,7 @@ fm_we_pre <- pffr(Y_Activity ~ O_waking_time_WE + AGE + edu_cat1 + edu_cat2 + SE
                   bs.yindex = list(bs = "ps", k=-1), 
                   bs.int = list(bs = "ps", k = 50),
                   data = data0_we_pre)
-save(fm_we_pre, file ="C:/Users/jlopezgarcia/Desktop/paper1/analysis/DATA/ACT/MODELS/fm_we_pre.rda")
+save(fm_we_pre, file ="/path/MODELS/fm_we_pre.rda")
 
 # 2) CHILDREN (n= 1153) ----
 # WEEKDAYS
@@ -59,7 +59,7 @@ fm_wd_chi <- pffr(Y_Activity ~ O_waking_time_WD + AGE + edu_cat1 + edu_cat2 + SE
               bs.yindex = list(bs = "ps", k=-1), 
               bs.int = list(bs = "ps", k = 50),
               data = data0_wd_chi)
-save(fm_wd_chi, file ="C:/Users/jlopezgarcia/Desktop/paper1/analysis/DATA/ACT/MODELS/fm_wd_chi.rda")
+save(fm_wd_chi, file ="/path/MODELS/fm_wd_chi.rda")
 
 # WEEKENDS
 fm_we_chi <- pffr(Y_Activity ~ O_waking_time_WE + AGE + edu_cat1 + edu_cat2 + SEX + season1 + season2 + season3 + study1 + s(ID, bs= "re"), 
@@ -67,7 +67,7 @@ fm_we_chi <- pffr(Y_Activity ~ O_waking_time_WE + AGE + edu_cat1 + edu_cat2 + SE
                   bs.yindex = list(bs = "ps", k=-1), 
                   bs.int = list(bs = "ps", k = 50),
                   data = data0_we_chi)
-save(fm_we_chi, file ="C:/Users/jlopezgarcia/Desktop/paper1/analysis/DATA/ACT/MODELS/fm_we_chi.rda")
+save(fm_we_chi, file ="/path/MODELS/fm_we_chi.rda")
 
 # 3) ADOLESCENTS (n=297) ----
 # WEEKDAYS
@@ -76,7 +76,7 @@ fm_wd_ado <- pffr(Y_Activity ~ O_waking_time_WD + AGE + edu_cat1 + edu_cat2 + SE
               bs.yindex = list(bs = "ps", k=-1), 
               bs.int = list(bs = "ps", k = 50),
               data = data0_wd_ado)
-save(fm_wd_ado, file ="C:/Users/jlopezgarcia/Desktop/paper1/analysis/DATA/ACT/MODELS/fm_wd_ado.rda")
+save(fm_wd_ado, file ="/path/MODELS/fm_wd_ado.rda")
 
 # WEEKENDS
 fm_we_ado <- pffr(Y_Activity ~ O_waking_time_WE + AGE + edu_cat1 + edu_cat2 + SEX + season1 + season2 + season3 + study2 + s(ID, bs= "re"), 
@@ -84,4 +84,4 @@ fm_we_ado <- pffr(Y_Activity ~ O_waking_time_WE + AGE + edu_cat1 + edu_cat2 + SE
                    bs.yindex = list(bs = "ps", k=-1), 
                    bs.int = list(bs = "ps", k = 50),
                    data = data0_we_ado)
-save(fm_we_ado, file ="C:/Users/jlopezgarcia/Desktop/paper1/analysis/DATA/ACT/MODELS/fm_we_ado.rda")
+save(fm_we_ado, file ="/path/MODELS/fm_we_ado.rda")
