@@ -53,7 +53,5 @@ More details on each steps are provided in the following sections:
 - Modelling fit conducted in pre-schoolers, children and adolescents on weekdays and week-end days, separately. (15_ACT_models)
 - Predictiong the coefficients of sex differences for each age group and daytype. (16_ACT_predictions)
 - Ploting the sex differences across the day (Figure 3  from manustript). (17_ACT_plots)
-
-More information on the computation of the activity distribution function in the following document: create.pdf
-
+  
 (link to paper doi:)
