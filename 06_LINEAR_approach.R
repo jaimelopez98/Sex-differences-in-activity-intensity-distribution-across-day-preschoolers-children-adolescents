@@ -21,7 +21,7 @@ library(openxlsx)
 
 # 1) DATA PREPARATION ----
 
-data <- read.csv("C:/Users/j_lopez/Downloads/paper1/analysis/DATA/labda_data.csv")
+data <- read.csv("/path/labda_data.csv")
 
 data_pre <- data %>% filter(AGE >=3 & AGE < 6)
 data_chi <- data %>% filter(age1 == 1)
@@ -74,7 +74,7 @@ group4 <- sprintf("%s (%s ; %s)", sex_age$VIG, sex_age$`2.5%.3`, sex_age$`97.5%.
 sex_age2 <- data.frame(group1, group2, group3, group4, row.names = c("PRE-SCHOOLERS","CHILDREN", "ADOLESCENTS"))
 colnames(sex_age2) <- c("SB", "LIG","MOD","VIG")
 
-write.xlsx(sex_age2,"C:/Users/jlopezgarcia/Desktop/paper1/analysis/DATA/WD_sex_age_new.xlsx",rowNames = TRUE)
+write.xlsx(sex_age2,"/path/WD_sex_age_new.xlsx",rowNames = TRUE)
 
 # week-end days
 # PRE-SCHOOLERS
@@ -121,4 +121,4 @@ group4 <- sprintf("%s (%s ; %s)", sex_age$VIG, sex_age$`2.5%.3`, sex_age$`97.5%.
 sex_age2 <- data.frame(group1, group2, group3, group4, row.names = c("PRE-SCHOOLERS","CHILDREN", "ADOLESCENTS"))
 colnames(sex_age2) <- c("SB", "LIG","MOD","VIG")
 
-write.xlsx(sex_age2,"C:/Users/jlopezgarcia/Desktop/paper1/analysis/DATA/WE_sex_age_new.xlsx",rowNames = TRUE)
+write.xlsx(sex_age2,"/path/WE_sex_age_new.xlsx",rowNames = TRUE)
