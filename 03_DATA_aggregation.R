@@ -19,14 +19,15 @@ library(ks)
 
 # 0) LOAD DEMOGRAPHIC AND ACCELEROMETER DATA --------------------------------------------------------------------------------
 
-labda_data <- read.csv("C:/Users/jlopezgarcia/Desktop/paper1/analysis/DATA/labda_data.csv") %>% select(ID)
+labda_data <- read.csv("/path/labda_data.csv") %>% select(ID)
 
-load("C:/Users/jlopezgarcia/Desktop/paper1/analysis/DATA/acc_data.rda")
+load("/path/acc_data.rda")
+load("/path/acc_wak_ACT.rda")
 
 # 1) REMOVE NON WEAR TIME ---- 
 
 acc_data_valid <- acc_data %>%
-  filter(invalidepoch == 0) # remove non-wear time
+  filter(calendar_date %in% acc_wak$calendar_date) # include only valid days
 
 # 2) CALCULATE TIME SERIES BY MINUTE ----
 
@@ -49,7 +50,7 @@ names(ts_wd2) <- c("ID",timeday)
 
 ts_wd2 <- semi_join(ts_wd2,labda_data)
 
-save(ts_wd2, file = "C:/Users/jlopezgarcia/Desktop/paper1/analysis/DATA/WD_ts.rda")
+save(ts_wd2, file = "/path/WD_ts.rda")
 
 # WEEKE-END DAYS
 ts_we <- ts_data_valid %>% filter(daytype == 1) %>% select(ID,interval,ACC) %>% group_by(ID,interval) %>%
@@ -61,5 +62,5 @@ names(ts_we2) <- c("ID",timeday)
 
 ts_we2 <- semi_join(ts_we2,labda_data)
 
-save(ts_we2, file = "C:/Users/jlopezgarcia/Desktop/paper1/analysis/DATA/WE_ts.rda")
+save(ts_we2, file = "/path/WE_ts.rda")
 
