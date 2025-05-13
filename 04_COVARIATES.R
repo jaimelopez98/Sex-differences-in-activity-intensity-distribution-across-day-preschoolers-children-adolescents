@@ -36,9 +36,9 @@ categorical = function(x){
 
 # 1) LOAD PHYSICAL ACTIVITY DATA AND MERGE WITH SOCIO-DEMOGRAPHIC DATA ----
 
-act5_sum <- read.csv("C:/Users/jlopezgarcia/Desktop/paper1/analysis/DATA/part5_personsummary.csv")
+act5_sum <- read.csv("/path/part5_personsummary.csv")
 
-labda_demo <- read.csv("C:/Users/jlopezgarcia/Desktop/paper1/analysis/DATA/demo_data.csv") %>%
+labda_demo <- read.csv("/path/demo_data.csv") %>%
   merge(.,act5_sum, by ="ID")
 
 # 2) PREPARATION OF COVARIATES ----
@@ -74,13 +74,13 @@ STUDY_cat <- categorical(labda_demo$STUDY)
 labda_demo$study1 <- STUDY_cat[,1]
 labda_demo$study2 <- STUDY_cat[,2]
 
-write.csv(labda_demo,"C:/Users/jlopezgarcia/Desktop/paper1/analysis/DATA/labda_demo.csv", row.names = FALSE)
+write.csv(labda_demo,"/path/labda_demo.csv", row.names = FALSE)
 
 labda_data <- labda_demo %>% select(,-ends_with("_pla")) %>% # only include weekdays and week-end days
   mutate(O_waking_time_WD = dur_min_WD - 16*60, # calculate wear time centered by the total of waking time (16h)
          O_waking_time_WE = dur_min_WE - 16*60) # calculate wear time centered by the total of waking time (16h)
 
-write.csv(labda_data,"C:/Users/jlopezgarcia/Desktop/paper1/analysis/DATA/labda_data.csv", row.names = FALSE)
+write.csv(labda_data,"/path/labda_data.csv", row.names = FALSE)
 
 # 2) CHARACTERISTICS OF STUDY POPULATION (TABLE 1) ----------------------------------------
 
@@ -189,7 +189,7 @@ tcov_labda2 <- labda_data %>%
 
 explora_demo <- rbind(ta_labda,tcov_labda,tcov_labda2)
 
-write.csv(explora_demo, "C:/Users/jlopezgarcia/Desktop/paper1/analysis/DATA/exploratory_demo.csv", row.names = FALSE)
+write.csv(explora_demo, "/path/exploratory_demo.csv", row.names = FALSE)
 
 
 # 3) MEAN AND SD OF ACCELEOROMETER DATA IN EACH AGE GROUP STRATIFIED BY SEX (TABLE 2) ----
@@ -250,7 +250,7 @@ ta_labda <- labda_data %>%
 
 explora_demo <- rbind(tcov_labda,tcov_labda2, tcov_labda3, ta_labda)
 
-write.csv(explora_demo, "C:/Users/jlopezgarcia/Desktop/paper1/analysis/DATA/exploratory_demo.csv", row.names = FALSE)
+write.csv(explora_demo, "/path/exploratory_demo.csv", row.names = FALSE)
 
 # PRE-SCHOOLERS (3-5y)
 pre_labda <- labda_data %>%
@@ -412,4 +412,4 @@ ado_labda <- ado_labda %>%
 
 explora_pa <- rbind(pre_labda,chi_labda, ado_labda)
 
-write.csv(explora_pa, "C:/Users/jlopezgarcia/Desktop/paper1/analysis/DATA/exploratory_pa.csv", row.names = FALSE)
+write.csv(explora_pa, "/path/exploratory_pa.csv", row.names = FALSE)
