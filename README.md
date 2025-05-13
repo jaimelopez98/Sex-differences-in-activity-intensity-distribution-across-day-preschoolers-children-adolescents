@@ -1,5 +1,5 @@
 
-# Sex differences in activity intensity distribution from childhood to adolescence: findings from three studies in Norway and Belgium.
+# Sex differences in the activity intensity distribution throughout the day in preschoolers, children and adolescents: A multi-study analysis.
 
 Code to examine how the physical activity (PA) differed by sex from age 3 to 17 depending on the day of the the week and across the time, using three different approaches:
   1) Linear regression to calculate sex differences considering time spent in sedentary behaviour, light PA, moderate PA and vigorous PA.
